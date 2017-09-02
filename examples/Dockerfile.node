@@ -1,0 +1,21 @@
+FROM node:8.4-alpine
+
+WORKDIR /root
+
+# npm will not install modules listed in "devDependencies"
+ENV NODE_ENV=production
+
+# Don't rebuild modules each time, only when package.json changes
+COPY package.json package-lock.json ./
+
+RUN npm i
+
+COPY common api ./
+
+EXPOSE 8080
+
+# Containers are run as "root" by default, which can be a security issue. The
+# Node.js images provide an unprivileged user called "node".
+USER node
+
+CMD [ "node", "api/start.js" ]
