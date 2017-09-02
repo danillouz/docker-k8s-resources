@@ -6,15 +6,15 @@ Cheatsheet of usefull `kubectl` commands to run on a Kubernetes cluster.
  - [The kubectl overview](https://kubernetes.io/docs/user-guide/kubectl-overview/)
  - [Complete command list of v1.7](https://kubernetes.io/docs/user-guide/kubectl/v1.7/)
 
-# Create Resource
+## Create Resource
 Create a resource or a cluster from a file or a directory.
 
 ```
 kubectl create -f <filename|directory>
 ```
 
-# Inspect Resources
-Display information of all resources or of a specific resource.
+## Inspect Resources
+Display information of all resources or of a specific resource:
 
 ```
 kubectl get <resource>
@@ -35,21 +35,25 @@ To export the json or yaml output, of your cluster, to a file execute respective
  - `kubectl get all -o json > <filename>.json` or
  - `kubectl get all -o yaml > <filename>.yml`
 
-# Remove Resources
-Remove a resource
+## Remove Resources
+Remove a resource:
+
 ```
 kubectl delete <resource> <name>
 ```
+
 e.g.
 `kubectl delete pods redis-1891543903-w1699` or `kubectl delete po/redis-1891543903-w1699`
 
-Remove all resources of a cluster
+Remove all resources of a cluster:
 
-`kubectl delete all --all`
+```
+kubectl delete all --all
+```
 
+## Private Image Registry
+Pull images from a private docker image registry:
 
-# Private Image Registry
-Pull images from a private docker image registry.
 ```
 kubectl create secret docker-registry <Registry Name> --docker-server=<Docker registry url> --docker-username=<Username> --docker-password=<Password> --docker-email=<Email>
 ```

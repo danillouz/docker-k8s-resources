@@ -3,14 +3,14 @@ Cheatsheet of usefull Docker commands.
 
 **Docker v17.06 or greater.**
 
-# Cleanup
+## Cleanup
 [Remove all unused images, not just dangling ones](https://docs.docker.com/engine/reference/commandline/system_prune/):
 
 ```
 docker system prune -a
 ```
 
-# Inspecting Resources
+## Inspecting Resources
 [Display system-wide information](https://docs.docker.com/engine/reference/commandline/info/):
 
 ```
@@ -28,7 +28,7 @@ docker inspect NAME|ID [NAME|ID...] | jq
 
 - [jq](https://stedolan.github.io/jq/) is a command line JSON processor.
 
-# Pushing an Image to a Registry
+## Pushing an Image to a Registry
 Tag the image:
 
 ```
