@@ -1,7 +1,7 @@
 # Kubernetes Commands
 Cheatsheet of usefull `kubectl` commands to run on a Kubernetes cluster.
 
-**Kubernetes v1.7.**
+**Kubernetes `v1.7` or greater.**
 
  - [The kubectl overview](https://kubernetes.io/docs/user-guide/kubectl-overview/)
  - [Complete command list of v1.7](https://kubernetes.io/docs/user-guide/kubectl/v1.7/)

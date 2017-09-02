@@ -1,7 +1,7 @@
 # Docker Commands
 Cheatsheet of usefull Docker commands.
 
-**Docker v17.06 or greater.**
+**Docker `v17.06` or greater.**
 
 ## Cleanup
 [Remove all unused images, not just dangling ones](https://docs.docker.com/engine/reference/commandline/system_prune/):
