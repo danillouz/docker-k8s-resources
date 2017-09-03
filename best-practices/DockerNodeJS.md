@@ -8,6 +8,25 @@ ENV NODE_ENV=production
 
 This will make sure that  npm will not install modules listed in `devDependencies`.
 
+## Copying dirs and contents of dirs
+To `COPY` all contents of a dir into your `WORKDIR` use:
+
+```Dockerfile
+WORKDIR /usr/src/app
+
+# All contents of the `common` dir will be copied into `/usr/src/app/`
+COPY common .
+```
+
+To `COPY` a dir into your `WORKDIR` use:
+
+```Dockerfile
+WORKDIR /usr/src/app
+
+# The `common` dir will be copied resulting into `/usr/src/app/common`
+COPY common ./common
+```
+
 ## Only rebuild node modules when package.json changes
 First copy package files, install them before copying files:
 
@@ -16,7 +35,7 @@ COPY package.json package-lock.json ./
 
 RUN npm i
 
-COPY common api ./
+COPY . .
 ```
 
 ## Run container as non root
@@ -24,6 +43,7 @@ Containers are run as `root` by default, which can be a security issue. The
 Node.js images provide an unprivileged user called `node`:
 
 ```Dockerfile
+RUN chown -R node:node .
 USER node
 ```
 
