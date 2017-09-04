@@ -47,6 +47,18 @@ RUN chown -R node:node .
 USER node
 ```
 
+## Exposing the host of a Web Service
+Make sure to set the host of the web service to `0.0.0.0` instead of `localhost`.
+This will bind to _all network interfaces_, not just _local-only interfaces_.
+
+You can set an environment variable in the `Dockerfile`, which can be overriden
+when running the image:
+
+```Dockerfile
+ENV API_HOST=0.0.0.0
+```
+
 ## Resources
 - [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
 - [Node.js Docker best practices](https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md)
+- [Dockerfile ENV docs](https://docs.docker.com/engine/reference/builder/#env)
