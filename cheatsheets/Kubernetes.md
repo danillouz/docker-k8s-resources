@@ -51,7 +51,7 @@ Remove all resources of a cluster:
 kubectl delete all --all
 ```
 
-## Private Image Registry
+## Configure a Private Image Registry
 Pull images from a private docker image registry:
 
 ```
@@ -62,3 +62,27 @@ e.g.
 ```
 kubectl create secret docker-registry myPrivateRegistry --docker-server=https://myprivateregisrty.com --docker-username=superUser --docker-password=password123 --docker-email=user@privatedocker.com
 ```
+
+## Context and Configuration
+The _Context_ defines with which kubernetes cluster the `kubectl` client communicates with.
+
+To view the entire (merged) _kubeconfig_:
+
+```
+kubectl config view
+```
+
+To get all contexts:
+
+```
+kubectl config get-contexts
+```
+
+Switch to a different context:
+
+```
+kubectl config use-context <CONTEXT_NAME>
+```
+
+## Resources
+- [kubectl cheatsheets](https://kubernetes.io/docs/user-guide/kubectl-cheatsheet/)
