@@ -84,5 +84,17 @@ Switch to a different context:
 kubectl config use-context <CONTEXT_NAME>
 ```
 
+## Execute commands
+You can execute commands in a container in a pod with the following command:
+```
+kubectl exec -it <POD_NAME> <COMMAND>
+```
+
+e.g. in order to run the redis-cli
+
+```
+kubectl exec -it redis redis-cli
+```
+
 ## Resources
 - [kubectl cheatsheets](https://kubernetes.io/docs/user-guide/kubectl-cheatsheet/)
