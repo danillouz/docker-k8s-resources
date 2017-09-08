@@ -10,14 +10,14 @@ Cheatsheet of usefull `kubectl` commands to run on a Kubernetes cluster.
 Create a resource or a cluster from a file or a directory.
 
 ```
-kubectl create -f <filename|directory>
+kubectl create -f <FILENAME|DIRECTORY>
 ```
 
 ## Inspect Resources
 Display information of all resources or of a specific resource:
 
 ```
-kubectl get <resource>
+kubectl get <RESOURCE>
 ```
 
  - `kubectl get pods` or `kubectl get po`
@@ -32,8 +32,8 @@ With the `-o,--output` you can format the resource result, e.g.:
  - `kubectl get all -o yaml` to get all the resources as yaml
 
 To export the json or yaml output, of your cluster, to a file execute respectively:
- - `kubectl get all -o json > <filename>.json` or
- - `kubectl get all -o yaml > <filename>.yml`
+ - `kubectl get all -o json > <FILENAME>.json` or
+ - `kubectl get all -o yaml > <FILENAME>.yml`
 
 ## Remove Resources
 Remove a resource:
@@ -55,7 +55,7 @@ kubectl delete all --all
 Pull images from a private docker image registry:
 
 ```
-kubectl create secret docker-registry <Registry Name> --docker-server=<Docker registry url> --docker-username=<Username> --docker-password=<Password> --docker-email=<Email>
+kubectl create secret docker-registry <REGISTRY_NAME> --docker-server=<DOCKER_REGISTRY_URL> --docker-username=<USERNAME> --docker-password=<PASSWORD> --docker-email=<EMAIL>
 ```
 
 e.g.
