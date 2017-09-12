@@ -8,6 +8,9 @@ ENV NODE_ENV=production
 # Don't rebuild modules each time, only when package.json changes
 COPY package.json package-lock.json ./
 
+# Remove the comment from the following line for native dependencies
+# RUN apk add --no-cache make gcc g++ python
+
 RUN npm i
 
 COPY common ./common
