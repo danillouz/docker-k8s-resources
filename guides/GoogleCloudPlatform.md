@@ -84,7 +84,7 @@ waiting:
 kubectl get services --watch
 ```
 
-# Cleaning Up
+## Cleaning Up
 All k8s Objects can be deleted by running:
 
 ```
@@ -95,4 +95,55 @@ The cluster can be deleted by running:
 
 ```
 gcloud container clusters delete <CLUSTER_NAME> --zone <ZONE>
+```
+
+# Working with Multiple Projects and Accounts
+The `gcloud` SDK allows you to create [topic configurations](https://cloud.google.com/sdk/gcloud/reference/topic/configurations), to store
+in named configurations.
+
+## Create a Configuration
+The easiest way to create topic configurations is to run `glcloud init` and select
+`[2] Create new configuration`. During the init flow you'll also have the opportunity
+to login- or switch to a different Google account.
+
+But it's also possible to run:
+
+```
+gcloud config configurations create <CONFIG_NAME>
+```
+
+## Listing Configurations
+```
+gcloud config configurations list
+```
+
+## Selecting a Configuration
+```
+gcloud config configurations activate <CONFIG_NAME>
+```
+
+Make sure that the activated `gcloud` configuration has acces to the cluster as
+defined in the k8s client context.
+
+The selected k8s context can be viewed by running:
+
+```
+kubectl config get-contexts
+```
+
+To connect to a cluster:
+
+```
+gcloud container clusters get-credentials <CLUSTER_NAME> --zone <CLUSTER_ZONE>
+```
+
+To switch to an already authenticated cluster use:
+
+```
+kubectl config use-context <CONTEXT_NAME>
+```
+
+## View Active Configuration
+```
+gcloud config list
 ```
